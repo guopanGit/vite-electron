@@ -1,0 +1,67 @@
+{
+  "name": "vite-electron",
+  "version": "0.0.1",
+  "author": {
+    "name": "DWS",
+    "email": "DWS@qq.com"
+  },
+  "main": "./src/main/main.js",
+  "scripts": {
+    "dev": "concurrently -n=vue,ele -c=green,blue \"vite\" \"electron .\"",
+    "build:all": "concurrently -n=vue:build,ele:build -c=green,blue \"vite build\" \"electron-packager . vite-electron --platform=win32 --electron-version=11.0.4 --arch=x64 --download.mirrorOptions.mirror=https://npm.taobao.org/mirrors/electron/ --asar --app-version=0.0.0 --build-version=0.0.0 --out ./dist/vite-electron --overwrite --no-package-manager --ignore=(.git)  --icon=logo.ic\""
+  },
+  "dependencies": {
+    "vue": "^3.0.4"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.0.4",
+    "concurrently": "^5.3.0",
+    "electron": "^11.0.4",
+    "electron-builder": "^23.0.3",
+    "electron-reloader": "^1.1.0",
+    "vite": "^1.0.0-rc.13"
+  },
+  "build": {
+    "productName": "DWS",
+    "appId": "DWS",
+    "copyright": "DWS",
+    "directories": {
+      "output": "build"
+    },
+    "nsis": {
+      "oneClick": false,
+      "shortcutName": "DWS",
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true
+    },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "http://xxxxx/"
+      }
+    ],
+    "dmg": {
+      "window": {
+        "width": 600,
+        "height": 400
+      },
+      "contents": [
+        {
+          "x": 106,
+          "y": 252,
+          "name": "DWS"
+        },
+        {
+          "x": 490,
+          "y": 252,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ],
+      "title": "DWS"
+    },
+    "win": {
+      "icon": "./public/icon.ico"
+    }
+  }
+}
