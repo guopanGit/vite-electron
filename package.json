@@ -11,15 +11,21 @@
     "build:all": "concurrently -n=vue:build,ele:build -c=green,blue \"vite build\" \"electron-packager . vite-electron --platform=win32 --electron-version=11.0.4 --arch=x64 --download.mirrorOptions.mirror=https://npm.taobao.org/mirrors/electron/ --asar --app-version=0.0.0 --build-version=0.0.0 --out ./dist/vite-electron --overwrite --no-package-manager --ignore=(.git)  --icon=logo.ic\""
   },
   "dependencies": {
-    "vue": "^3.0.4"
+    "@vitejs/plugin-vue": "^2.3.3",
+    "axios": "^0.27.2",
+    "normalize.css": "^8.0.1",
+    "vue": "^3.2.36",
+    "vue-router": "^4.0.15",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@vue/compiler-sfc": "^3.0.4",
     "concurrently": "^5.3.0",
-    "electron": "^11.0.4",
+    "electron": "^19.0.3",
     "electron-builder": "^23.0.3",
     "electron-reloader": "^1.1.0",
-    "vite": "^1.0.0-rc.13"
+    "sass": "^1.45.1",
+    "vite": "^2.9.9"
   },
   "build": {
     "productName": "DWS",

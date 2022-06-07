@@ -16,19 +16,27 @@ function createWindow() {
     width: 1200,
     height: 800,
     icon: path.join(__dirname, "./public/DWS.ico"),
-    frame: false,//去掉默认菜单
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true,
       contextIsolation: false,
-      webSecurity: false
+      webSecurity: false,
     }
   })
   mainWindow.loadURL('http://localhost:3000/')
   // mainWindow.loadFile(url)
 
+  //去掉默认菜单栏
+  Menu.setApplicationMenu(null);
+
   // 调试模式
   mainWindow.webContents.openDevTools()
+
+  //添加这段代码
+  BrowserWindow.mainWindow = mainWindow;
+  return mainWindow;
+
+
 }
 
 // 单例应用程序
